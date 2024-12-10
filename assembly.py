@@ -30,6 +30,8 @@ def get_register_or_value(text):
             printe("Could not read Register")
     else:
         return int(text)
+def get_bool_register_or_value(text):
+    return get_register_or_value(text) == 1
     
 def get_line_value(text):
     if text in labels:
@@ -66,7 +68,9 @@ def set_reg(reg, val):
         printe(f"Failed: Register index is out of bounds: 1 <= {reg_i+1} <= {register_count}'")
     registers[reg_i] = val
     printc(f"Setting register {reg} to {val}")
-        
+    
+def bool_to_num(x):
+    return 1 if x else 0
 def cjump(x,y):
     if registers[0] == get_register_or_value(y):
         update_line_number(get_line_value(x))
@@ -82,6 +86,15 @@ ops = {
     "ADD": lambda x,y: get_register_or_value(x) + get_register_or_value(y),
     "DIV": lambda x,y: get_register_or_value(x) // get_register_or_value(y),
     "MOD": lambda x,y: get_register_or_value(x) % get_register_or_value(y),
+    "AND": lambda x,y: bool_to_num(get_bool_register_or_value(x) and get_bool_register_or_value(y)),
+    "OR": lambda x,y: bool_to_num(get_bool_register_or_value(x) or get_bool_register_or_value(y)),
+    "XOR": lambda x,y: bool_to_num(get_bool_register_or_value(x) ^ get_bool_register_or_value(y)),
+    "NEG": lambda x,y: bool_to_num(not get_bool_register_or_value(x)),
+    "EQ": lambda x,y: bool_to_num(get_register_or_value(x) == get_register_or_value(y)),
+    "GE": lambda x,y: bool_to_num(get_register_or_value(x) >= get_register_or_value(y)),
+    "LE": lambda x,y: bool_to_num(get_register_or_value(x) <= get_register_or_value(y)),
+    "GT": lambda x,y: bool_to_num(get_register_or_value(x) > get_register_or_value(y)),
+    "LT": lambda x,y: bool_to_num(get_register_or_value(x) < get_register_or_value(y)),
     "MOV": lambda x,y: set_reg(y,get_register_or_value(x)),
     "JUMP": lambda x,y: update_line_number(get_line_value(x)),
     "CMP": lambda x,y: 1 if get_register_or_value(x) > get_register_or_value(y) else  -1 if get_register_or_value(x) < get_register_or_value(y) else 0,
@@ -94,10 +107,15 @@ ops = {
     "PRINT": lambda x,y: print_val(get_register_or_value(x))
 }
 
+for current_line_number, current_line in enumerate(program_lines):
+    if current_line.startswith("LABEL"):
+        labels[current_line.strip().split(" ")[-1]] = current_line_number
+    
   
 while line_number < len(program_lines):
     
     current_line = program_lines[line_number]
+    current_line = current_line.split("#")[0].strip()
     current_line_number = line_number
     line_number += 1
     
