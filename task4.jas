@@ -1,0 +1,5 @@
+INP 1 2
+MOV R1 R2
+MOD R2 2
+PREG 0 0
+IF 

@@ -1,0 +1,5 @@
+MUL 5 5
+MUL R1 5
+STORE 4 R1
+PMEM 0 0
+ 

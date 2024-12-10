@@ -1,0 +1,7 @@
+T1: 1 + 3 + 5
+T2:(9 mod 2) + (7 * 5) in R5
+T3: 5 * 5 * 5 in memory at address 4
+T4:  First get a value from input using the new
+ command INP [n/a] [n/a] that stores user input into R1
+ If the value in R1 (x) is even, then do (x - 1) * ( x + 1)
+ else do (x / 2) + (x * 2) where x is the original value in R1
