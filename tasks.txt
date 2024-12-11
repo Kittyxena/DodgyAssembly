@@ -5,3 +5,22 @@ T4:  First get a value from input using the new
  command INP [n/a] [n/a] that stores user input into R1
  If the value in R1 (x) is even, then do (x - 1) * ( x + 1)
  else do (x / 2) + (x * 2) where x is the original value in R1
+
+
+
+
+
+
+
+
+T13 Take an input N and do the following until you reach 1.
+
+If the current number N is odd then 3 * N + 1 
+and take the result as the new current number N
+
+
+If it is even then divide it by 2 and take the result 
+as the new current number N
+
+
+When N == 1 stop

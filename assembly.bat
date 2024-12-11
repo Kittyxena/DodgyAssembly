@@ -1,2 +1,2 @@
-python C:\Users\Cafouche\Desktop\Jonathan\assembly.py %1
+python C:\Users\Cafouche\Desktop\Jonathan\DodgyAssembly\assembly.py %1
 pause
