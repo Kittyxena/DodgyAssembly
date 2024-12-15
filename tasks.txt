@@ -1,26 +1,46 @@
 T1: 1 + 3 + 5
+
 T2:(9 mod 2) + (7 * 5) in R5
+
 T3: 5 * 5 * 5 in memory at address 4
+
 T4:  First get a value from input using the new
  command INP [n/a] [n/a] that stores user input into R1
  If the value in R1 (x) is even, then do (x - 1) * ( x + 1)
  else do (x / 2) + (x * 2) where x is the original value in R1
 
+T5: Get 3 numbers from the user, call them x, y and z
+respectively. Then put (x + (y - z)) * z in memory
+at address 5
+T6: With ADD 1 [?] as your only math operator, add 1 to R5 until 
+it is 101  
+
+T7: Take an input and times it by itself
+T8: Take an input in minutes and 
+put the number of days in memory address 1, 
+the number of hours in memory address 2, 
+the number of minutes in memory address 3
+e.g. 61 would give 1 hour 1 min
 
 
+T9: For memory addresses 0 to 100, set their values
+ to (100 MINUS address)
+e.g. memory address 21 will be 100-21 = 79
+T10: Create a loop where the user is asked for input,
+ if the input is == 1 then exit the loop, 
+ otherwise loop again
 
+T11 ((5 > 6) OR (7 != 9)) AND 4 >= 1
 
-
-
+T12 Enter a number if the number is > 5 and < 10 then
+then pmem
+else if it is >= 10 XOR <= 1
+then preg
+else return (T and F) and 6 > 4
 
 T13 Take an input N and do the following until you reach 1.
-
 If the current number N is odd then 3 * N + 1 
 and take the result as the new current number N
-
-
 If it is even then divide it by 2 and take the result 
 as the new current number N
-
-
 When N == 1 stop
