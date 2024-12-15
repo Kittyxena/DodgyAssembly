@@ -1,0 +1,11 @@
+GT 5 6
+MOV R1 R2 #R2 = (5>6)
+EQ 7 9
+NEG R1 0
+MOV R1 R3 #R3 (7!=9)
+GE 4 1
+MOV R1 R4 # (4>=1)
+OR R2 R3
+MOV R1 R5 #(R2 OR R3) 
+AND R5 R4
+
