@@ -1,4 +1,6 @@
 import sys
+import random
+import math
 import os
 os.system('') 
 register_count = 7
@@ -104,7 +106,8 @@ ops = {
     "PREG": lambda x,y: print_regs(),
     "PMEM": lambda x,y: print_mem(),
     "INP": lambda x,y: get_input(),
-    "PRINT": lambda x,y: print_val(get_register_or_value(x))
+    "PRINT": lambda x,y: print_val(get_register_or_value(x)),
+    "RAND": lambda x, y: random.randint(get_register_or_value(x), get_register_or_value(y))
 }
 
 for current_line_number, current_line in enumerate(program_lines):
