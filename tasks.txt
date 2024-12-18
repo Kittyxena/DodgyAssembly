@@ -44,3 +44,22 @@ and take the result as the new current number N
 If it is even then divide it by 2 and take the result 
 as the new current number N
 When N == 1 stop
+
+T14 We will be creating a list of N numbers stored in memory.
+To do this take inputs M and N. M is the head of the list in memory 
+and N is the number of items in the list.  
+
+Store N at memory address M. This is used so people reading your 
+list later may know how many items there are.
+Then ask for N numbers from the user and store them in address 
+(M+1)-(M+N).
+
+
+T15.A We are going to create a list similar to T14, but instead of 
+asking for inputs the list will contain 0,1,2,3,4... N-1
+Write a program similar to T14, but only take M and N as inputs and 
+set memory address (M+1) equal to 0 then (M+2) = 1 etc..
+
+T15.B
+Now that you have a list in memory, write code to access an index given by INP.
+Keep asking for INP and printing the value until you receive -1 in INP. (There is a PRINT command)

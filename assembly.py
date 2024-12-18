@@ -42,13 +42,13 @@ def update_line_number(l):
     global line_number
     line_number = l - 1
     if l < 0:
-        printc(f"Cannot jump to {l} as it is negative")
+        printe(f"Cannot jump to {l} as it is negative")
         exit(1)
-    printc(f"Set program line number to {l}")
+    #printc(f"Set program line number to {l}")
     
 def set_memory(k,v):
     memory[get_register_or_value(k)] = get_register_or_value(v)
-    printc(f"Set memory address {k} to {memory[get_register_or_value(k)]}")
+    #printc(f"Set memory address {k} to {memory[get_register_or_value(k)]}")
     
 def load_memory(k, reg):
     set_reg(reg, memory[get_register_or_value(k)])
@@ -67,7 +67,7 @@ def set_reg(reg, val):
     if reg_i < 0 or reg_i >= register_count:
         printe(f"Failed: Register index is out of bounds: 1 <= {reg_i+1} <= {register_count}'")
     registers[reg_i] = val
-    printc(f"Setting register {reg} to {val}")
+    #printc(f"Setting register {reg} to {val}")
     
 def bool_to_num(x):
     return 1 if x else 0
@@ -128,20 +128,20 @@ while line_number < len(program_lines):
     
     parts = current_line.split(" ")
     if len(parts) < 3:
-        printe(f"Too few arguments on line {current_line_number}")
+        printe(f"Too few arguments on line {current_line_number+1}")
         exit(1)
     if len(parts) > 3:
-        printe(f"Too many arguments on line {current_line_number}")
+        printe(f"Too many arguments on line {current_line_number+1}")
         exit(1)
         
     op = parts[0]
     if op not in ops:
-        printc(f"Unknown opcode {op} on line {current_line_number}")
-    printc(f"Executing '{current_line}'...")
+        printe(f"Unknown opcode {op} on line {current_line_number+1}")
+    #printc(f"Executing '{current_line}'...")
     ret = ops[op](parts[1], parts[2])
     if ret is not None:
         set_reg("R1", ret)
-    print()
+    #print()
 printc("DONE")
     
     
